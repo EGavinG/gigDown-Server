@@ -56,12 +56,12 @@ app.locals.usblibrary = [
       console.log(`${app.locals.title} is running on http://localhost:${app.get('port')}.`);
     });
     
-    app.get('/usblibrary', (request, response) => {
+    app.get('/api/v1/usblibrary', (request, response) => {
         const usblibrary = app.locals.usblibrary;
         response.json({ usblibrary });
     });
 
-    app.get('/checklist/:id', (request, response) => {
+    app.get('/api/v1/checklist/:id', (request, response) => {
         const { id } = request.params;
         const itemId = parseInt(id);
         const itemlist = app.locals.checklist.find(item => item.id === itemId);
@@ -72,12 +72,12 @@ app.locals.usblibrary = [
         response.status(200).json(itemlist);
     });
 
-    app.get('/checklist', (request, response) => {
+    app.get('/api/v1/checklist', (request, response) => {
         const checklist = app.locals.checklist;
         response.json({ checklist });
     });
 
-    app.get('/checklist/:id', (request, response) => {
+    app.get('/api/v1/checklist/:id', (request, response) => {
         const { id } = request.params;
         const itemlist = app.locals.checklist.find(item => item.id === id);
         if (!itemlist) {
@@ -88,7 +88,7 @@ app.locals.usblibrary = [
     });
     
 
-    app.post('/checklist', (request, response) => {
+    app.post('/api/v1/checklist', (request, response) => {
         const id = Date.now();
         const itemlist = request.body;
       
@@ -107,7 +107,7 @@ app.locals.usblibrary = [
       });
     
   
-      app.delete('/checklist/:id', (request, response) => {
+      app.delete('/api/v1/checklist/:id', (request, response) => {
         const { id } = request.params;
         const index = app.locals.checklist.findIndex(item => item.id === parseInt(id));
         if (index === -1) {
