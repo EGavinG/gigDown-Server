@@ -9,7 +9,7 @@ In your terminal...
 ## Install dependencies
 `npm i`
 
-## Start up the server!
+## Start up the server
 `nodemon server.js`
 
-## Return to the gigDown repo to finish installation.
+## Return to the gigDown repo to finish installation!
