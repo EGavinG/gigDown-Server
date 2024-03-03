@@ -47,6 +47,12 @@ app.locals.usblibrary = [
         {id: 3, title: 'Deeper and Deeper Shep/s Fierce Remix', artist: 'Madonna', album: 'Erotica Remix Album', genre: 'Pop', bpm: '145', key: 'C#', duration: '8:36 min' }
     ]
 
+    app.use((req, res, next) => {
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost3000');
+      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      next();
+    });
 
     app.get('/', (request, response) => {
       response.send('gigDown Server Online~');
